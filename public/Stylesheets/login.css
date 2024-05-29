@@ -1,0 +1,115 @@
+/* Set background color and text color */
+body {
+    background-color: #1a1a1d;
+    /* Dark background color */
+    color: #ffffff;
+    /* White text color */
+}
+
+section {
+    margin: auto 20px;
+    padding: auto 20px;
+}
+
+/* Style for the logo */
+.text-black .fas.fa-crow,
+h3 {
+    color: #fc6e30;
+    /* TruNeeds orange */
+    font-size: 2rem;
+    /* Font size */
+    margin-right: 0.5rem;
+    /* Margin */
+}
+
+.text-black .h1 {
+    font-weight: bold;
+    /* Font weight */
+    font-size: 1.5rem;
+    /* Font size */
+    margin-bottom: 0;
+    /* Remove margin bottom */
+}
+
+/* Style for the login form */
+.form-container {
+    padding: 0 1.5rem;
+    /* Padding */
+}
+
+.form-container form {
+    width: 23rem;
+    /* Form width */
+}
+
+.form-container p {
+    color: #fc6e30;
+}
+
+.form-container h3 {
+    font-weight: bold;
+    /* Font weight */
+    letter-spacing: 1px;
+    /* Letter spacing */
+    margin-bottom: 1.5rem;
+    /* Margin */
+}
+
+/* Style for form inputs and labels */
+.form-outline {
+    margin-bottom: 1.5rem;
+    /* Margin */
+}
+
+.form-control {
+    background-color: #272730;
+    /* Dark background color */
+    border-color: #4d4d59;
+    /* Border color */
+    color: #ffffff;
+    /* Text color */
+}
+
+.form-control:focus {
+    border-color: #fc6e30;
+    /* Focus border color */
+    box-shadow: none;
+    /* Remove box shadow on focus */
+}
+
+.form-label {
+    color: #fc6e30;
+    /* Label color */
+}
+
+/* Style for login button */
+.btn-info {
+    background-color: #fc6e30;
+    /* Button color */
+    border-color: #fc6e30;
+    /* Border color */
+}
+
+.btn-info:hover {
+    background-color: #d45c1d;
+    /* Button hover color */
+    border-color: #d45c1d;
+    /* Border hover color */
+}
+
+.logo img {
+    height: 50px;
+    width: auto;
+    margin-bottom: 40px;
+}
+
+/* Style for forgot password and registration links */
+.small {
+    font-size: 0.875rem;
+    /* Font size */
+}
+
+.link-info {
+    color: #fc6e30;
+    /* Link color */
+}

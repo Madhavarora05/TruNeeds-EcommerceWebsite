@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shop</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
+    <link rel="stylesheet" type="text/css"
+        href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.css" />
+    <link rel="stylesheet" type="text/css"
+        href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick-theme.min.css" />
+    <link rel="stylesheet" href="/stylesheets/shop.css">
+</head>
+
+<body>
+    <div class="navigation navbar navbar-expand-lg bg-light navbar-light">
+        <div class="container-fluid">
+            <div class="logo">
+                <img src="/images/logo.png" alt="Logo">
+            </div>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="menu navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="home">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="shop">Shop</a></li>
+                    <li class="nav-item"><a class="nav-link" href="home#contactus">Contact Us</a></li>
+                    <li class="nav-item dropdown" id="userNav" style="display: none;">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                            aria-expanded="false">
+                            <span id="username"></span>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="#">Your Orders</a></li>
+                            <li><a class="dropdown-item" href="forgot">Change Password</a></li>
+                            <li><a class="dropdown-item" href="#" onclick="logout()">Logout</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item" id="loginNav"><a class="nav-link" href="login">Login</a></li>
+                </ul>
+            </div>
+            <div class="right-nav d-flex">
+                <a href="#" class="cart">
+                    <i class="bi bi-bag"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+    <div id="sideCart" class="side-cart">
+        <h4>Shopping Cart</h4>
+        <span class="close-cart" onclick="toggleCart()">&times;</span>
+        <ul id="cartItems">
+        </ul>
+        <div class="summary">
+            <p>Subtotal: <span id="subtotal">₹0.00</span></p>
+            <p>Shipping: <span id="shipping">₹200</span></p>
+            <p>Tax: <span id="tax">₹0.00</span></p>
+            <p>Total: <span id="total">₹0.00</span></p>
+        </div>
+        <button class="btn btn-primary" onclick="checkout()">Checkout</button>
+
+    </div>
+
+    <section class="container py-5">
+        <div class="deals-slider">
+            <div><img src="/images/deal1.png" alt="Deal 1"></div>
+            <div><img src="/images/deal2.png" alt="Deal 2"></div>
+            <div><img src="/images/deal3.png" alt="Deal 3"></div>
+        </div>
+    </section>
+    <div class="container">
+        <h2 class="text-center">Trending Now</h2>
+        <div class="row">
+            <div class="col-md-4">
+                <div class="product">
+                    <img src="/images/products/product1.jpg" alt="Product 1">
+                    <h3>TobleroneMilk Chocolate with Honey and Almond Nougat - 2 X 100 g</h3>
+                    <p>₹399.00</p>
+                    <span>-20% M.R.P.: ₹499</span>
+                    <button class="btn btn-primary add-to-cart" data-id="1" onclick="toggleCart()">Add to Cart</button>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="product">
+                    <img src="/images/products/product2.jpg" alt="Product 2">
+                    <h3>PRIME HYDRATION DRINK ORANGE FLAVOUR, 500ml</h3>
+                    <p>₹849.00</p>
+                    <span>-50% M.R.P.: ₹1,699</span>
+                    <button class="btn btn-primary add-to-cart" data-id="2" onclick="toggleCart()">Add to Cart</button>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="product">
+                    <img src="/images/products/product3.jpg" alt="Product 3">
+                    <h3>Frito-Lay Cheetos Flamin Hot Crunchy Pouch, 226.8 g</h3>
+                    <p>₹549.00</p>
+                    <span>-45% M.R.P.: ₹1,000</span>
+                    <button class="btn btn-primary add-to-cart" data-id="3" onclick="toggleCart()">Add to Cart</button>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-4">
+                <div class="product">
+                    <img src="/images/products/product7.jpg" alt="Product 1">
+                    <h3>Amul Taaza Homogenised Toned Long Life Milk 1 L (Pack of 12)</h3>
+                    <p>₹1530.00</p>
+                    <span>-15% M.R.P.: ₹1800</span>
+                    <button class="btn btn-primary add-to-cart" data-id="1" onclick="toggleCart()">Add to Cart</button>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="product">
+                    <img src="/images/products/product8.jpg" alt="Product 2">
+                    <h3>Gillette Classic Sensitive Shave Foam - 418 gram (33% extra)</h3>
+                    <p>₹138.00</p>
+                    <span>-45% M.R.P.: ₹249</span>
+                    <button class="btn btn-primary add-to-cart" data-id="2" onclick="toggleCart()">Add to Cart</button>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="product">
+                    <img src="/images/products/product9.jpg" alt="Product 3">
+                    <h3>Fortune Chakki Fresh Atta, 5 kg, 100% Atta 0% Maida</h3>
+                    <p>₹389.00</p>
+                    <span>-35% M.R.P.: ₹599</span>
+                    <button class="btn btn-primary add-to-cart" data-id="3" onclick="toggleCart()">Add to Cart</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <h2 class="text-center" id="12">New Collection</h2>
+        <div class="row">
+            <div class="col-md-4">
+                <div class="product">
+                    <img src="/images/products/product4.jpg" alt="Product 4">
+                    <h3>Pringles Original | Classic Salted Potato Chips | 134gram</h3>
+                    <p>₹147.00</p>
+                    <span>-14% M.R.P.: ₹170</span>
+                    <button class="btn btn-primary add-to-cart" data-id="4" onclick="toggleCart()">Add to Cart</button>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="product">
+                    <img src="/images/products/product5.jpg" alt="Product 5">
+                    <h3>Gatorade Sports Drink - Blue Bolt Flavour, 500ml Bottle</h3>
+                    <p>₹43.00</p>
+                    <span>-15% M.R.P.: ₹50</span>
+                    <button class="btn btn-primary add-to-cart" data-id="5" onclick="toggleCart()">Add to Cart</button>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="product">
+                    <img src="/images/products/product6.jpg" alt="Product 6">
+                    <h3>Ferrero Rocher Premium Chocolates 24 Pieces, 300 g</h3>
+                    <p>₹882.00</p>
+                    <span>-5% M.R.P.: ₹929</span>
+                    <button class="btn btn-primary add-to-cart" data-id="6" onclick="toggleCart()">Add to Cart</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <footer class="bg-dark text-white py-4">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="logo">
+                        <img src="/images/logo.png" alt="Logo" class="img-fluid mb-3">
+                    </div>
+                    <p>ADDRESS: Subway Basement Sub Way Basement, BSF Colony Rd, Jalandhar, Punjab 144001</p>
+                    <p>TELEPHONE: +91 987 654 3210</p>
+                    <p>EMAIL: TRUNEEDS@gmail.com</p>
+                </div>
+                <div class="col">
+                    <h5>MENU</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="#">SHOP DETAIL</a></li>
+                        <li><a href="#">CONTACT</a></li>
+                        <li><a href="#">HOME</a></li>
+                        <li><a href="#">SHOP</a></li>
+                    </ul>
+                </div>
+                <div class="col">
+                    <h5>ACCOUNT</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="#">LOGIN-IN/LOGOUT</a></li>
+                        <li><a href="#">REGISTER</a></li>
+                        <li><a href="#">SETTINGS</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-4">
+                    <h5>NEWSLETTER</h5>
+                    <p>Subscribe by our newsletter and get update.</p>
+                    <div class="input-group mb-3">
+                        <input type="text" class="form-control" placeholder="Enter Your Mail"
+                            aria-label="Enter Your Mail" aria-describedby="basic-addon2">
+                        <div class="input-group-append">
+                            <button class="btn btn-danger" type="button">Subscribe</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script type="text/javascript"
+        src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            fetch('/get-username')
+                .then(response => response.json())
+                .then(data => {
+                    if (data.username) {
+                        document.getElementById('username').innerText = `${data.username}`;
+                        document.getElementById('userNav').style.display = 'block';
+                        document.getElementById('loginNav').style.display = 'none';
+                    } else {
+                        document.getElementById('userNav').style.display = 'none';
+                        document.getElementById('loginNav').style.display = 'block';
+                    }
+                });
+
+            // Toggle side cart visibility
+            document.querySelector('.cart').addEventListener('click', function () {
+                document.getElementById('sideCart').classList.toggle('active');
+            });
+            document.querySelector('.close-cart').addEventListener('click', () => {
+                const sideCart = document.getElementById('sideCart');
+                sideCart.classList.remove('active');
+            });
+
+            // Add to cart functionality
+            document.querySelectorAll('.add-to-cart').forEach(button => {
+                button.addEventListener('click', (e) => {
+                    const productElement = e.target.closest('.product');
+                    const productId = e.target.dataset.id;
+                    const productName = productElement.querySelector('h3').innerText;
+                    const productPrice = productElement.querySelector('p').innerText;
+                    const productImage = productElement.querySelector('img').src;
+                    addToCart(productId, productName, productPrice, productImage);
+                });
+            });
+
+            // Initialize deals slider
+            $(document).ready(function () {
+                $('.deals-slider').slick({
+                    dots: true,
+                    infinite: true,
+                    speed: 300,
+                    slidesToShow: 1,
+                    adaptiveHeight: true,
+                    autoplay: true,
+                    autoplaySpeed: 3000,
+                    arrows: false
+                });
+            });
+        });
+
+        function logout() {
+            fetch('/logout', { method: 'POST' })
+                .then(() => {
+                    location.reload();
+                })
+                .catch(error => console.error('Error logging out:', error));
+        }
+
+        function toggleCart() {
+            const sideCart = document.getElementById('sideCart');
+            if (!sideCart.classList.contains('active')) {
+                sideCart.classList.add('active');
+            }
+        }
+
+        function addToCart(productId, productName, productPrice, productImage) {
+            const cartItems = document.getElementById('cartItems');
+            const existingItem = cartItems.querySelector(`[data-id="${productId}"]`);
+            if (existingItem) {
+                const quantityInput = existingItem.querySelector('.quantity input');
+                quantityInput.value = parseInt(quantityInput.value) + 1;
+            } else {
+                const item = document.createElement('li');
+                item.setAttribute('data-id', productId);
+                item.innerHTML = `
+                    <img src="${productImage}" alt="${productName}">
+                    <div class="item-info">
+                        <h5>${productName}</h5>
+                        <p>${productPrice}</p>
+                    </div>
+                    <div class="quantity">
+                        <input type="number" value="1" min="1" onchange="updateCartSummary()">
+                        <i class="bi bi-trash" onclick="removeFromCart(${productId})"></i>
+                    </div>
+                `;
+                cartItems.appendChild(item);
+            }
+            updateCartSummary();
+
+            // Open the cart if it's not already open
+            const sideCart = document.getElementById('sideCart');
+            if (!sideCart.classList.contains('active')) {
+                toggleCart();
+            }
+        }
+
+        function removeFromCart(productId) {
+            const cartItems = document.getElementById('cartItems');
+            const item = cartItems.querySelector(`[data-id="${productId}"]`);
+            if (item) {
+                cartItems.removeChild(item);
+            }
+            updateCartSummary();
+        }
+
+        function updateCartSummary() {
+            const cartItems = document.querySelectorAll('#cartItems li');
+            let subtotal = 0;
+            cartItems.forEach(item => {
+                const priceText = item.querySelector('.item-info p').innerText.replace('₹', '');
+                const price = parseFloat(priceText.replace(/,/g, ''));
+                const quantity = parseInt(item.querySelector('.quantity input').value);
+                subtotal += price * quantity;
+            });
+
+            const shipping = subtotal > 1000 ? 0 : 200;
+            const shippingText = subtotal > 1000 ? 'Free' : `₹${shipping.toFixed(2)}`;
+            const tax = (subtotal * 0.01).toFixed(2);
+            const total = (subtotal + shipping + parseFloat(tax)).toFixed(2);
+
+            document.getElementById('subtotal').innerText = `₹${subtotal.toFixed(2)}`;
+            document.getElementById('shipping').innerText = shippingText;
+            document.getElementById('tax').innerText = `₹${tax}`;
+            document.getElementById('total').innerText = `₹${total}`;
+        }
+
+        function checkout() {
+            const cartItems = document.querySelectorAll('#cartItems li');
+            const products = [];
+            cartItems.forEach(item => {
+                const productId = item.dataset.id;
+                const productName = item.querySelector('.item-info h5').innerText;
+                const priceText = item.querySelector('.item-info p').innerText.replace('₹', '');
+                const price = parseFloat(priceText.replace(/,/g, ''));
+                const quantity = parseInt(item.querySelector('.quantity input').value);
+                products.push({ productId, productName, price, quantity });
+            });
+        
+            const subtotalText = document.getElementById('total').innerText.replace('₹', '');
+            const subtotal = parseFloat(subtotalText.replace(/,/g, ''));
+        
+            fetch('/orders/checkout', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ username: document.getElementById('username').innerText, products, subtotal })
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.message === 'Order placed successfully') {
+                    alert('Order placed successfully');
+                    window.location="/shop";
+                } else {
+                    alert("Please Login First");
+                    window.location="/login";
+                }
+            })
+            .catch(error => console.error('Error:', error));
+        }
+        
+    </script>
+
+
+</body>
+
+</html>
