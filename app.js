@@ -17,12 +17,12 @@ const app = express();
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname, 'public')));
-mongoose.connect('mongodb+srv://madhav:M@dhavdon1@truneed.eej7fda.mongodb.net');
+mongoose.connect('mongodb+srv://madhav:madhav123@truneed.eej7fda.mongodb.net/?retryWrites=true&w=majority&appName=truneed');
 app.use(session({
   secret: 'yourSecretKey',
   resave: false,
   saveUninitialized: true,
-  store: MongoStore.create({ mongoUrl: 'mongodb+srv://madhav:M@dhavdon1@truneed.eej7fda.mongodb.net' })
+  store: MongoStore.create({ mongoUrl: 'mongodb+srv://madhav:madhav123@truneed.eej7fda.mongodb.net/?retryWrites=true&w=majority&appName=truneed' })
 }));
 const db = mongoose.connection;
 db.on('error', console.error.bind(console, 'MongoDB connection error:'));
