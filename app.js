@@ -17,10 +17,7 @@ const app = express();
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname, 'public')));
-mongoose.connect('mongodb://localhost:27017/Truneeds', {
-  useNewUrlParser: true,
-  useUnifiedTopology: true,
-});
+mongoose.connect('mongodb+srv://madhav:M@dhavdon1@truneed.eej7fda.mongodb.net/?retryWrites=true&w=majority&appName=truneed');
 app.use(session({
   secret: 'yourSecretKey',
   resave: false,
